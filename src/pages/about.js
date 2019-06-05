@@ -1,17 +1,17 @@
 import React from "react"
-import Footer from "../components/footer"
 import Header from "../components/header"
+import Footer from "../components/footer"
 
 import { Link } from "gatsby"
 
-const IndexPage = () => {
+const AboutPage = () => {
   return (
     <div>
-        <Header />
-      <h1>Together BioRemediation</h1>
-      <h2>Together film</h2>
+      <Header />
+      <h1>About Me</h1>
+      <p>My name is Nataliya Ioffe</p>
       <p>
-        <Link to="/about">About Me</Link>
+        <Link to="/">Home</Link>
       </p>
       <p>
         <Link to="/contact">Contact me</Link>
@@ -22,4 +22,4 @@ const IndexPage = () => {
   )
 }
 
-export default IndexPage
+export default AboutPage
