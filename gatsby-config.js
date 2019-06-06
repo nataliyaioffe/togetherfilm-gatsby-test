@@ -7,6 +7,10 @@
 module.exports = {
   /* Your site config here */
 
+  siteMetadata: {
+    title: 'Together Film',
+    author: 'Nataliya Ioffe'
+  },
   plugins: [
     `gatsby-plugin-sass`
   ]
