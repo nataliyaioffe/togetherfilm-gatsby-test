@@ -1,24 +1,14 @@
 import React from "react"
-import Header from "../components/header"
-import Footer from "../components/footer"
+import Layout from "../components/layout"
 
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 
 const ContactPage = () => {
   return (
-    <div>
-      <Header />
+    <Layout>
       <h1>Contact</h1>
       <p>Toronto, Ontario, Canada</p>
-      <p>
-        <Link to="/">Home</Link>
-      </p>
-      <p>
-        <Link to="/about">About Me</Link>
-      </p>
-
-      <Footer />
-    </div>
+    </Layout>
   )
 }
 
