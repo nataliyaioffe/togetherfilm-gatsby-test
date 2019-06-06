@@ -8,10 +8,18 @@ module.exports = {
   /* Your site config here */
 
   siteMetadata: {
-    title: 'Together Film',
-    author: 'Nataliya Ioffe'
+    title: "Together Film",
+    author: "Nataliya Ioffe",
   },
   plugins: [
-    `gatsby-plugin-sass`
-  ]
+    `gatsby-plugin-sass`,
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: `src`,
+        path: `${__dirname}/src/`,
+      },
+    },
+    `gatsby-transformer-remark`
+  ],
 }
