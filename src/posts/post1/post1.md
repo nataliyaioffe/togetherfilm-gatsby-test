@@ -1,9 +1,11 @@
 ---
-title: "Blog Post #2"
+title: "Blog Post #1"
 date: "2019-06-07"
 ---
 
-This is the SECOND blog post!
+This is the FIRST blog post!
+
+![Connie](./connie.jpg)
 
 ## Topics Covered
 
