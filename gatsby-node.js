@@ -1,22 +1,5 @@
 const path = require("path")
 
-module.exports.onCreateNode = ({ node, actions }) => {
-  const { createNodeField } = actions
-
-  if (node.internal.type === "MarkdownRemark") {
-    const slug = path.basename(node.fileAbsolutePath, ".md")
-
-    createNodeField({
-      node,
-      name: "slug",
-      value: slug,
-    })
-
-    // console.log(JSON.stringify(node, undefined, 4))
-    // console.log('@@@@@@@@@@@@@@@@@', slug);
-  }
-}
-
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   // 1. Get path to template
@@ -25,12 +8,10 @@ module.exports.createPages = async ({ graphql, actions }) => {
   // 2. Get markdown data. Returns a promise
   const res = await graphql(`
     query {
-      allMarkdownRemark {
+      allContentfulBlogPost {
         edges {
           node {
-            fields {
-              slug
-            }
+            slug
           }
         }
       }
@@ -38,13 +19,16 @@ module.exports.createPages = async ({ graphql, actions }) => {
   `)
 
   // 3. Create new pages
-  res.data.allMarkdownRemark.edges.forEach(edge => {
+  res.data.allContentfulBlogPost.edges.forEach(edge => {
     createPage({
       component: blogTemplate,
-      path: `/blog/${edge.node.fields.slug}`,
+      path: `/blog/${edge.node.slug}`,
       context: {
-        slug: edge.node.fields.slug,
+        slug: edge.node.slug,
       },
     })
   })
 }
+
+// GATSBY-NODE.JS - dynamically crate our pages
+// blog template - where we render content to the screen

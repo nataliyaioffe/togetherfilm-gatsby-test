@@ -6,14 +6,12 @@ import { graphql } from "gatsby"
 // We must define query separately and export it
 // currently no way to access "context" with usestaticquery here
 // variable $slug comes from context when we set up the page (gatsby-node.js)
+
 export const query = graphql`
   query($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      frontmatter {
-        title
-        date
-      }
-      html
+    contentfulBlogPost(slug: { eq: $slug }) {
+      title
+      publishedDate(formatString: "MMMM Do, YYYY")
     }
   }
 `
@@ -21,11 +19,12 @@ export const query = graphql`
 const Blog = props => {
   return (
     <Layout>
-      <h1>{props.data.markdownRemark.frontmatter.title}</h1>
-      <p>{props.data.markdownRemark.frontmatter.date}</p>
-      <div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }}></div>
+      <h1>{props.data.contentfulBlogPost.title}</h1>
+      <p>{props.data.contentfulBlogPost.publishedDate}</p>
     </Layout>
   )
 }
 
 export default Blog
+
+// SEE GATSBY-NODE.JS WHICH USES THIS TEMPLATE IN CREATING PAGES
