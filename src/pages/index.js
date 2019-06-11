@@ -8,8 +8,8 @@ const IndexPage = () => {
   return (
     <Layout>
       <Head title="Home" />
-      <h1>Together BioRemediation</h1>
-      <h2>Together film</h2>
+      <h1>Connie Chihua</h1>
+      <h2>Find your chi with this chi</h2>
     </Layout>
   )
 }
