@@ -12,6 +12,7 @@ module.exports = {
     author: "Nataliya Ioffe",
   },
   plugins: [
+    `gatsby-plugin-react-helmet`,
     {
       resolve: 'gatsby-source-contentful',
       options: {
